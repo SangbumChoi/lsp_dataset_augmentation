@@ -12,6 +12,8 @@ lsp_dataset
 
 3. `example`
 
-![before](/im0938.jpg =100x20))
+<img src="im0938.jpg" width="200">
+before cropping and zero padding
 
-![after](/crop0938.jpg =100x20))
+<img src="crop0938.jpg" width="200">
+after cropping and zero padding

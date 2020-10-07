@@ -22,8 +22,7 @@ def _load_matfile(filepath):
 
 def save_cropped_image(bbox, image, save_path):
     cropped_path = 'cropped/images'
-    if not os.path.exists(cropped_path):
-        os.mkdir(cropped_path)
+    os.makedirs(cropped_path, exist_ok=True)
 
     shape = image.shape
 

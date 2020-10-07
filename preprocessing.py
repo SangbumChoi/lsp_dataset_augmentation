@@ -6,16 +6,6 @@ from tqdm import tqdm
 
 BASE_PATH = ''
 
-IMAGE_FILE_PATHS = [
-    (BASE_PATH, 'images', 'im' + str(i).zfill(4) + '.jpg')
-    for i in range(1, 2000 + 1)
-]
-
-IMAGE_CROPPED_PATHS = [
-    (BASE_PATH, 'cropped', 'im' + str(i).zfill(4) + '.jpg')
-    for i in range(1, 2000 + 1)
-]
-
 def _load_matfile(filepath):
     def _get_bbox(annot):
         _min = annot.min(axis=1)[:2, :]
@@ -31,7 +21,7 @@ def _load_matfile(filepath):
     return result
 
 def save_cropped_image(bbox, image, save_path):
-    cropped_path = 'cropped'
+    cropped_path = 'cropped/images'
     if not os.path.exists(cropped_path):
         os.mkdir(cropped_path)
 
@@ -93,7 +83,7 @@ def process_annotation():
         save_cropped_image(
             annotations['bbox'][i, :],
             image,
-            os.path.join(BASE_PATH, 'cropped', 'im' + str(i+1).zfill(4) + '.jpg')
+            os.path.join(BASE_PATH, 'cropped', 'images','im' + str(i+1).zfill(4) + '.jpg')
         )
 
 if __name__ == "__main__":
